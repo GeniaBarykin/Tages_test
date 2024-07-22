@@ -1,5 +1,10 @@
 import os
 import heapq
+import argparse
+parser = argparse.ArgumentParser(description="Отсортировать файл")
+parser.add_argument("input", help="Путь до входного файла")
+args = parser.parse_args()
+input_file = args.input # Путь к входному файлу
 
 def split_and_sort_file(input_file, chunk_size):
     temp_files = []
@@ -62,7 +67,7 @@ def sort_large_file(input_file, output_file,chunck_size):
         os.remove(temp_file)
 
 
-input_file = 'file.txt'  # Путь к входному файлу
+
 output_file = 'sorted_file.txt'  # Путь к выходному файлу
 chunck_size = 450 * 1024 * 1024
 sort_large_file(input_file, output_file, chunck_size)
